@@ -1,0 +1,95 @@
+/* =========================================================
+   TOKENS — as decisões de design em um só lugar
+   Cores, espaçamentos, tipografia e tamanhos de tela.
+   ========================================================= */
+
+/* ---------- Paleta da pílula vermelha (padrão) ---------- */
+:root,
+[data-theme='red'] {
+  --color-brown: #250902;
+  --color-wine: #38040e;
+  --color-darkred: #640d14;
+  --color-darkwine: #800e13;
+  --color-warmred: #ad2831;
+
+  /* versões RGB cruas, para usar em rgba(var(--x), opacidade) */
+  --color-brown-rgb: 37, 9, 2;
+  --color-wine-rgb: 56, 4, 14;
+  --color-darkred-rgb: 100, 13, 20;
+  --color-darkwine-rgb: 128, 14, 19;
+  --color-warmred-rgb: 173, 40, 49;
+}
+
+/* ---------- Paleta da pílula azul (espelha a vermelha) ---------- */
+[data-theme='blue'] {
+  --color-brown: #010912;
+  --color-wine: #041b38;
+  --color-darkred: #0a2f52;
+  --color-darkwine: #0d3d66;
+  --color-warmred: #2c8fd1;
+
+  --color-brown-rgb: 1, 9, 18;
+  --color-wine-rgb: 4, 27, 56;
+  --color-darkred-rgb: 10, 47, 82;
+  --color-darkwine-rgb: 13, 61, 102;
+  --color-warmred-rgb: 44, 143, 209;
+}
+
+/* ---------- Cores fixas ---------- */
+:root {
+  --pill-red: #ad2831;
+  --pill-blue: #2c8fd1;
+  --matrix-green: #00ff41;
+  --whatsapp: #25d366;
+
+  --text-strong: #ffffff;
+  --text-soft: #e1e1e1;
+  --text-body: rgba(245, 245, 245, 0.65);
+  --text-muted: rgba(245, 245, 245, 0.5);
+  --text-faint: rgba(245, 245, 245, 0.4);
+
+  /* ---------- Tipografia ---------- */
+  --font: 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* ---------- Movimento ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---------- Layout ----------
+     --gutter: margem lateral, cresce com a tela
+     --container: largura máxima do conteúdo (aumenta no ultrawide)
+     --section-space: respiro vertical de cada seção */
+  --gutter: clamp(16px, 4vw, 64px);
+  --container: 1400px;
+  --section-space: clamp(80px, 10vw, 140px);
+  --header-h: 72px;
+  --radius: 6px;
+}
+
+/* ---------- Telas grandes e ultrawide ----------
+   O conteúdo fica mais largo, e a fonte base cresce um pouco
+   para o texto não parecer minúsculo num monitor de 34". */
+@media (min-width: 1920px) {
+  :root {
+    --container: 1560px;
+  }
+  html {
+    font-size: 106.25%;
+  }
+}
+@media (min-width: 2560px) {
+  :root {
+    --container: 1800px;
+  }
+  html {
+    font-size: 118.75%;
+  }
+}
+@media (min-width: 3440px) {
+  :root {
+    --container: 2200px;
+  }
+  html {
+    font-size: 131.25%;
+  }
+}

@@ -1,0 +1,31 @@
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  transition: color 0.4s var(--ease-out);
+}
+.link::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-warmred);
+  transition: width 0.4s var(--ease-out), left 0.4s var(--ease-out);
+}
+.link:hover,
+.link:focus-visible {
+  color: var(--color-warmred);
+}
+.link:hover::after,
+.link:focus-visible::after {
+  width: 100%;
+  left: 0;
+}

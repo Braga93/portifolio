@@ -1,0 +1,36 @@
+.rain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.12;
+}
+.column {
+  position: absolute;
+  top: -100%;
+  width: 25px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  animation: cair linear infinite;
+}
+.column::before {
+  content: 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  display: block;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, var(--color-warmred) 15%, var(--color-darkwine) 50%, transparent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes cair {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}

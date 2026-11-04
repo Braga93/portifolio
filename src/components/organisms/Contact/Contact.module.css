@@ -1,0 +1,10 @@
+.address {
+  font-style: normal;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(32px, 5vw, 60px);
+  max-width: 1000px;
+  margin-inline: auto;
+}

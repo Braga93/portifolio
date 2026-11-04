@@ -1,0 +1,10 @@
+.accent {
+  color: var(--color-warmred);
+  transition: color 0.5s var(--ease-out);
+}
+.italic {
+  font-style: italic;
+}
+.block {
+  display: block;
+}

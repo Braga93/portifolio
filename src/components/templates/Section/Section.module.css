@@ -1,0 +1,4 @@
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}

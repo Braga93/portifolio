@@ -1,0 +1,26 @@
+.heading {
+  font-family: var(--font);
+  color: var(--text-strong);
+}
+.display {
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.section {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.card {
+  font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.item {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}

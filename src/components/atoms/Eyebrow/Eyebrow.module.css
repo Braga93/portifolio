@@ -1,0 +1,18 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-warmred);
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+}

@@ -1,0 +1,17 @@
+.dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s var(--ease-out);
+}
+.red {
+  background: var(--pill-red);
+}
+.blue {
+  background: var(--pill-blue);
+}
+.active {
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}

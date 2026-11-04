@@ -1,0 +1,59 @@
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: clamp(24px, 3vw, 40px);
+  background: rgba(var(--color-brown-rgb), 0.15);
+  border: 1px solid rgba(var(--color-warmred-rgb), 0.15);
+  border-radius: var(--radius);
+  transition: all 0.4s var(--ease-out);
+}
+.quote {
+  flex-grow: 1;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.7);
+}
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+.role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(245, 245, 245, 0.45);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-warmred);
+  background: rgba(var(--color-wine-rgb), 0.35);
+  box-shadow: 0 20px 40px rgba(var(--color-warmred-rgb), 0.15);
+}
+.card:hover .stars > span {
+  text-shadow: 0 0 8px var(--color-warmred);
+}
+
+/* Morpheus e Agente Smith: brilho verde da Matrix */
+.matrix:hover {
+  border-color: var(--matrix-green);
+  background: rgba(0, 51, 13, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2);
+}
+.matrix:hover .stars > span {
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green);
+}
+.matrix:hover .name {
+  color: var(--matrix-green);
+}

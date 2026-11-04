@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin-bottom: clamp(48px, 7vw, 90px);
+}
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+.start {
+  align-items: flex-start;
+  text-align: left;
+}
+.subtitle {
+  max-width: 640px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}

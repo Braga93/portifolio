@@ -1,0 +1,67 @@
+/* Controle segmentado: o marcador desliza por trás da opção ativa.
+   As duas opções têm a mesma largura, então o deslize é exato. */
+.toggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  background: rgba(var(--color-brown-rgb), 0.55);
+  border: 1px solid rgba(var(--color-warmred-rgb), 0.35);
+  border-radius: 40px;
+  user-select: none;
+  transition: border-color 0.4s var(--ease-out), background 0.4s var(--ease-out);
+}
+.toggle:hover {
+  border-color: var(--color-warmred);
+}
+
+.slider {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  background: var(--color-warmred);
+  border-radius: 40px;
+  box-shadow: 0 0 14px rgba(var(--color-warmred-rgb), 0.45);
+  transition: transform 0.4s var(--ease-out), background 0.5s var(--ease-out);
+}
+.isBlue .slider {
+  transform: translateX(100%);
+}
+
+.option {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 92px;
+  padding: 6px 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(245, 245, 245, 0.6);
+  transition: color 0.3s var(--ease-out);
+}
+.active {
+  color: #fff;
+}
+
+/* em telas estreitas, só as bolinhas */
+@media (max-width: 900px) {
+  .option {
+    min-width: 0;
+    padding: 7px 11px;
+  }
+  .caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}

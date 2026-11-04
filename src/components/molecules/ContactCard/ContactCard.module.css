@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  text-align: center;
+}
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  color: var(--color-warmred);
+  transition: transform 0.3s var(--ease-out);
+}
+.card:hover .icon {
+  transform: scale(1.1);
+}
+.text {
+  max-width: 340px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}

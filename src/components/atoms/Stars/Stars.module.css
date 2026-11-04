@@ -1,0 +1,9 @@
+.stars {
+  display: flex;
+  gap: 4px;
+}
+.stars > span {
+  font-size: 1.2rem;
+  color: var(--color-warmred);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}

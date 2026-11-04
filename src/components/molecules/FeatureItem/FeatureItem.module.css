@@ -1,0 +1,13 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title {
+  margin-top: 8px;
+}
+.text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
