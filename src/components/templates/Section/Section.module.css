@@ -1,4 +1,63 @@
+/* =========================================================
+   Seções e suas "quebras"
+   hero   → transparente: a chuva de código aparece por trás
+   deep   → fundo mais escuro que a página
+   raised → faixa vinho, a mais clara
+   glow   → escuro com um brilho do tema vindo do topo
+   Toda seção (menos o hero) começa com uma linha de luz no topo.
+   ========================================================= */
 .section {
+  --section-bg: transparent;
   position: relative;
   padding-block: var(--section-space);
+  background: var(--section-bg);
+  transition: background-color 0.5s var(--ease-out);
+}
+
+/* linha de luz que marca a entrada de uma nova seção */
+.section:not(.hero)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(80%, 900px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(var(--color-warmred-rgb), 0.9), transparent);
+  box-shadow: 0 0 18px 1px rgba(var(--color-warmred-rgb), 0.45);
+}
+/* losango no centro da linha */
+.section:not(.hero)::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--color-warmred);
+  box-shadow: 0 0 12px rgba(var(--color-warmred-rgb), 0.8);
+}
+
+/* o fim do hero escurece até o tom da próxima seção, sem corte seco */
+.hero {
+  background: linear-gradient(to bottom, transparent 70%, var(--surface-deep));
+}
+
+.deep {
+  --section-bg: var(--surface-deep);
+}
+
+.raised {
+  --section-bg: var(--surface-raised);
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent 30%),
+    var(--section-bg);
+}
+
+.glow {
+  --section-bg: var(--surface-deep);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(var(--color-darkred-rgb), 0.55), transparent 70%),
+    var(--section-bg);
 }

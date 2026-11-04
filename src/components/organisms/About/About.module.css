@@ -54,7 +54,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--color-brown) 5%, transparent 40%);
+  background: linear-gradient(to top, var(--section-bg, var(--color-brown)) 5%, transparent 40%);
   pointer-events: none;
 }
 .media:hover .img {

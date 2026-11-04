@@ -93,3 +93,12 @@
     font-size: 131.25%;
   }
 }
+
+/* ---------- Superfícies das seções ----------
+   Cada seção tem um fundo próprio, derivado da paleta do tema.
+   Como partem das variáveis, o modo azul ganha as mesmas quebras. */
+:root {
+  --surface-deep: color-mix(in srgb, var(--color-brown) 55%, #000);
+  --surface-raised: color-mix(in srgb, var(--color-wine) 75%, var(--color-brown));
+  --surface-footer: color-mix(in srgb, var(--color-brown) 35%, #000);
+}

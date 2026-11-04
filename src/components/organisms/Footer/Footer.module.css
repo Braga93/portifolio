@@ -1,7 +1,7 @@
 .footer {
   padding: 60px 0 40px;
-  background: rgba(var(--color-brown-rgb), 0.3);
-  border-top: 1px solid rgba(var(--color-warmred-rgb), 0.1);
+  background: var(--surface-footer);
+  border-top: 1px solid rgba(var(--color-warmred-rgb), 0.2);
 }
 .inner {
   display: flex;
