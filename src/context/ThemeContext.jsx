@@ -1,8 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
-// Dois temas: 'red' (pílula vermelha, padrão) e 'blue' (pílula azul).
-// O tema fica no atributo data-theme do <html>, e o CSS troca as cores
-// pelas variáveis definidas em styles/tokens.css.
 const ThemeContext = createContext(null);
 const CHAVE = 'portfolio-tema';
 
@@ -21,9 +18,7 @@ export function ThemeProvider({ children }) {
     document.documentElement.dataset.theme = tema;
     try {
       localStorage.setItem(CHAVE, tema);
-    } catch {
-      /* navegação privada: o tema só não fica salvo */
-    }
+    } catch {}
   }, [tema]);
 
   const alternarTema = useCallback(() => {

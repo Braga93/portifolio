@@ -1,8 +1,3 @@
-/**
- * Ícones em SVG que herdam a cor do texto (currentColor),
- * então trocam de cor junto com o tema.
- * linha: desenhado com traço · preenchido: desenhado com preenchimento
- */
 const icones = {
   email: {
     tipo: 'linha',
@@ -18,7 +13,6 @@ const icones = {
   },
 };
 
-/** Ícone decorativo: o texto ao lado (ou o aria-label do link) já diz o que é. */
 export default function Icon({ name, className = '' }) {
   const { tipo, d } = icones[name];
   const traco =

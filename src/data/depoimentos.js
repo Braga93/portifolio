@@ -1,5 +1,3 @@
-// tema: null aparece sempre; 'red' ou 'blue' aparece só naquele tema.
-// matrix: true dá ao card o brilho verde da Matrix ao passar o mouse.
 export const depoimentos = [
   {
     id: 'robson',

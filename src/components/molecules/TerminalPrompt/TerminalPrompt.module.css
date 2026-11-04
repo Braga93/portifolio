@@ -34,7 +34,6 @@
     display: none;
   }
 }
-/* o foco aparece na janela inteira do terminal, não numa caixa em volta do campo */
 .input:focus-visible {
   outline: none;
 }

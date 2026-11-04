@@ -2,11 +2,6 @@ import { PillDot } from '../../atoms';
 import { useTheme } from '../../../context/ThemeContext.jsx';
 import styles from './PillToggle.module.css';
 
-/**
- * Alternador de tema "Vermelha | Azul".
- * É um botão com role="switch": leitores de tela anunciam
- * "Pílula azul, ligado/desligado".
- */
 export default function PillToggle({ className = '' }) {
   const { tema, alternarTema } = useTheme();
   const azul = tema === 'blue';

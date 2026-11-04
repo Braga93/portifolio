@@ -5,7 +5,6 @@ import styles from './Header.module.css';
 
 const ids = navegacao.map((item) => item.href.slice(1));
 
-/** Cabeçalho fixo: logo à esquerda, menu no centro, alternador à direita. */
 export default function Header() {
   const ativa = useActiveSection(ids);
   return (

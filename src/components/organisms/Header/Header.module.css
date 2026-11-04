@@ -7,7 +7,6 @@
   align-items: center;
   column-gap: 24px;
   min-height: var(--header-h);
-  /* alinha logo e alternador com as bordas do conteúdo, também no ultrawide */
   padding: 10px max(var(--gutter), (100% - var(--container)) / 2);
   background: linear-gradient(to bottom, rgba(var(--color-wine-rgb), 0.95), rgba(var(--color-wine-rgb), 0));
   backdrop-filter: blur(12px);
@@ -21,7 +20,6 @@
   justify-self: end;
 }
 
-/* celular: logo e alternador em cima, menu na linha de baixo */
 @media (max-width: 640px) {
   .header {
     grid-template-columns: 1fr auto;

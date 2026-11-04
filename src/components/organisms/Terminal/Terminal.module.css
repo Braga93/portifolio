@@ -21,7 +21,6 @@
     0 0 0 1px rgba(var(--color-warmred-rgb), 0.5),
     0 0 50px rgba(var(--color-warmred-rgb), 0.25);
 }
-/* linhas de varredura de monitor antigo */
 .window::after {
   content: '';
   position: absolute;

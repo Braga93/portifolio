@@ -4,5 +4,4 @@ export const boasVindas = [
   { texto: 'Digite "ajuda" para ver os comandos.', tipo: 'suave' },
 ];
 
-// atalhos clicáveis abaixo do terminal
 export const atalhos = ['ajuda', 'whoami', 'projetos', 'linguagens', 'atividade', 'pilula azul'];

@@ -5,13 +5,6 @@ import { nomesEmCache } from '../services/github.js';
 let contador = 0;
 const novoId = () => ++contador;
 
-/**
- * Estado e regras do terminal:
- * - lista de entradas (comando digitado + linhas de resposta)
- * - histórico navegável com ↑ e ↓
- * - autocompletar com Tab
- * - cancela a busca anterior se um novo comando começar
- */
 export default function useTerminal({ boasVindas, contexto }) {
   const [entradas, setEntradas] = useState(() => [
     { id: novoId(), comando: null, linhas: boasVindas, estado: 'pronto' },
@@ -21,7 +14,6 @@ export default function useTerminal({ boasVindas, contexto }) {
   const historico = useRef([]);
   const posicao = useRef(-1);
   const busca = useRef(null);
-  // o contexto (tema) muda com o tempo; a ref evita recriar as funções
   const contextoAtual = useRef(contexto);
   contextoAtual.current = contexto;
 
@@ -61,7 +53,6 @@ export default function useTerminal({ boasVindas, contexto }) {
     }
   }, []);
 
-  /** ↑ (direcao = 1) volta no histórico; ↓ (direcao = -1) avança. */
   const navegarHistorico = useCallback((direcao) => {
     const lista = historico.current;
     if (!lista.length) return null;
@@ -69,7 +60,6 @@ export default function useTerminal({ boasVindas, contexto }) {
     return posicao.current === -1 ? '' : lista[posicao.current];
   }, []);
 
-  /** Completa o nome do comando ou, depois de "projeto ", o nome do repositório. */
   const completar = useCallback((texto) => {
     const [nome, parcial, ...resto] = texto.trimStart().split(/\s+/);
     if (resto.length) return texto;

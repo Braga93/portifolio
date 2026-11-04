@@ -1,6 +1,3 @@
-/* =========================================================
-   BASE — reset e estilos globais
-   ========================================================= */
 *,
 *::before,
 *::after {
@@ -25,7 +22,6 @@ body {
   transition: background-color 0.5s var(--ease-out);
 }
 
-/* granulado sutil por cima de tudo */
 body::before {
   content: '';
   position: fixed;
@@ -65,7 +61,6 @@ button {
   outline-offset: 3px;
 }
 
-/* esconde da tela, mas leitores de tela continuam lendo */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -78,7 +73,6 @@ button {
   border: 0;
 }
 
-/* link "pular para o conteúdo": aparece só ao navegar pelo teclado */
 .skip-link {
   position: fixed;
   top: 12px;
@@ -96,7 +90,6 @@ button {
   transform: translateY(0);
 }
 
-/* quem pede menos movimento no sistema recebe o site sem animações */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

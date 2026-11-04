@@ -10,7 +10,6 @@ function Prompt({ comando }) {
   );
 }
 
-/** Linhas de resposta, reveladas com efeito de digitação quando animar = true. */
 function Saida({ linhas, animar }) {
   const total = linhas.reduce((soma, l) => soma + l.texto.length + 1, 0);
   const { visiveis, terminou } = useTypewriter(total, animar);
@@ -39,8 +38,6 @@ function Saida({ linhas, animar }) {
   });
 
   if (terminou) return digitadas;
-  // enquanto digita: leitores de tela recebem o texto completo de uma vez,
-  // em vez de ouvir letra por letra
   return (
     <>
       <p className="visually-hidden">{linhas.map((l) => l.texto).join(' ')}</p>
@@ -49,7 +46,6 @@ function Saida({ linhas, animar }) {
   );
 }
 
-/** Um comando digitado e a sua resposta. */
 export default function TerminalEntry({ comando, linhas, estado, animar }) {
   return (
     <div className={styles.entry}>

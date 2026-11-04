@@ -1,10 +1,6 @@
 import { forwardRef, useState } from 'react';
 import styles from './TerminalPrompt.module.css';
 
-/**
- * Linha de comando: um <form> com <input>.
- * Enter envia, ↑/↓ percorrem o histórico e Tab completa.
- */
 const TerminalPrompt = forwardRef(function TerminalPrompt({ onSubmit, onHistory, onComplete, ocupado }, ref) {
   const [valor, setValor] = useState('');
 

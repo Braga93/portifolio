@@ -1,7 +1,6 @@
 import { Button, Heading } from '../../atoms';
 import styles from './ServiceCard.module.css';
 
-/** Card de um serviço: imagem, título, descrição e link. */
 export default function ServiceCard({ titulo, descricao, imagem, alt, href }) {
   return (
     <article className={styles.card}>

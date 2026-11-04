@@ -1,6 +1,5 @@
 import { Footer, Header, MatrixRain, WhatsAppFloat } from '../../organisms';
 
-/** Estrutura comum da página: fundo, cabeçalho, conteúdo e rodapé. */
 export default function MainLayout({ children }) {
   return (
     <>

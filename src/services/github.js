@@ -1,12 +1,3 @@
-/**
- * Serviço da API pública do GitHub.
- *
- * - Usa fetch com AbortController (a busca é cancelada se outro comando começar)
- * - Guarda as respostas em cache por 10 minutos (memória + sessionStorage),
- *   porque a API sem login permite só 60 consultas por hora por IP
- * - Transforma falhas em GithubError, com mensagens que o terminal entende
- */
-
 const API = 'https://api.github.com';
 export const USUARIO = 'Braga93';
 const VALIDADE = 10 * 60 * 1000;
@@ -16,7 +7,7 @@ export class GithubError extends Error {
   constructor(tipo, detalhe = {}) {
     super(tipo);
     this.name = 'GithubError';
-    this.tipo = tipo; // 'limite' | 'nao-encontrado' | 'rede' | 'falha'
+    this.tipo = tipo;
     this.detalhe = detalhe;
   }
 }
@@ -34,9 +25,7 @@ function lerCache(chave) {
         return item.dados;
       }
     }
-  } catch {
-    /* sessionStorage indisponível: segue só com a memória */
-  }
+  } catch {}
   return null;
 }
 
@@ -45,9 +34,7 @@ function gravarCache(chave, dados) {
   memoria.set(chave, item);
   try {
     sessionStorage.setItem(`gh:${chave}`, JSON.stringify(item));
-  } catch {
-    /* cheio ou bloqueado: tudo bem, a memória basta */
-  }
+  } catch {}
 }
 
 async function getJSON(caminho, { signal } = {}) {
@@ -81,13 +68,10 @@ async function getJSON(caminho, { signal } = {}) {
   return dados;
 }
 
-/* ---------------- consultas usadas pelo terminal ---------------- */
-
 export function buscarPerfil(opcoes) {
   return getJSON(`/users/${USUARIO}`, opcoes);
 }
 
-/** Repositórios públicos, sem forks e sem o repositório do perfil, do mais recente ao mais antigo. */
 export async function buscarRepositorios(opcoes) {
   const repos = await getJSON(`/users/${USUARIO}/repos?per_page=100&sort=pushed`, opcoes);
   return repos
@@ -99,7 +83,6 @@ export function buscarLinguagens(repo, opcoes) {
   return getJSON(`/repos/${USUARIO}/${repo}/languages`, opcoes);
 }
 
-/** Soma os bytes de cada linguagem em todos os repositórios (consultas em paralelo). */
 export async function buscarLinguagensGerais(opcoes) {
   const repos = await buscarRepositorios(opcoes);
   const porRepo = await Promise.all(repos.map((r) => buscarLinguagens(r.name, opcoes)));
@@ -116,7 +99,6 @@ export function buscarAtividade(opcoes) {
   return getJSON(`/users/${USUARIO}/events/public?per_page=30`, opcoes);
 }
 
-/** Nomes já carregados, usados pelo autocompletar (Tab) sem gastar consulta. */
 export function nomesEmCache() {
   const repos = lerCache(`/users/${USUARIO}/repos?per_page=100&sort=pushed`);
   return repos ? repos.filter((r) => !r.fork).map((r) => r.name) : [];

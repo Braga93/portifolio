@@ -1,12 +1,3 @@
-/**
- * Comandos do Terminal da Matrix.
- *
- * Cada comando recebe (argumentos, contexto) e devolve uma lista de linhas:
- *   { texto, tipo, href? }
- * tipo: 'texto' | 'destaque' | 'suave' | 'sucesso' | 'erro' | 'link'
- *
- * Os comandos marcados com (API) buscam dados ao vivo no GitHub.
- */
 import * as github from '../github.js';
 import { contatos } from '../../data/contato.js';
 import { barra, mesAno, porcentagens, tempoRelativo } from '../../utils/formatar.js';
@@ -181,7 +172,7 @@ export const comandos = {
 
   limpar: {
     descricao: 'limpa a tela',
-    executar: () => [], // tratado pelo hook useTerminal
+    executar: () => [],
   },
 
   sudo: {
@@ -199,7 +190,6 @@ export function resolverNome(nome) {
 
 export const nomesVisiveis = Object.keys(comandos).filter((n) => !comandos[n].oculto);
 
-/** Executa um comando e devolve as linhas. Erros da API viram mensagens legíveis. */
 export async function executar(nome, args, contexto) {
   const chave = resolverNome(nome);
   if (!chave) {

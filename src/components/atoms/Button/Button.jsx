@@ -1,10 +1,5 @@
 import styles from './Button.module.css';
 
-/**
- * Link com aparência de botão (todos levam a outro lugar, por isso são <a>).
- * variant: 'cyber' (chamada principal) | 'outline' | 'text'
- * external: abre em nova aba e avisa leitores de tela.
- */
 export default function Button({ href, variant = 'outline', external = false, className = '', children }) {
   const externo = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
   return (

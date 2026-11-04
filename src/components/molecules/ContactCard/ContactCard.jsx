@@ -1,7 +1,6 @@
 import { Heading, Icon, TextLink } from '../../atoms';
 import styles from './ContactCard.module.css';
 
-/** Canal de contato: ícone, nome do canal, descrição e link. */
 export default function ContactCard({ icone, titulo, descricao, rotulo, href, externo = false }) {
   return (
     <div className={styles.card}>

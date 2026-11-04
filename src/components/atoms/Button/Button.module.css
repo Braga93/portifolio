@@ -14,7 +14,6 @@
   z-index: 3;
 }
 
-/* ---------- cyber: chamada principal do topo ---------- */
 .cyber {
   padding: 16px 42px;
   font-size: 0.9rem;
@@ -102,7 +101,6 @@
   transform: scale(0.98);
 }
 
-/* ---------- outline: botão secundário ---------- */
 .outline {
   align-self: flex-start;
   padding: 12px 28px;
@@ -121,7 +119,6 @@
   transform: translateX(4px);
 }
 
-/* ---------- text: link discreto dentro de cards ---------- */
 .text {
   align-self: flex-start;
   padding: 8px 0;

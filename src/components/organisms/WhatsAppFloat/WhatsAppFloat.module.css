@@ -1,5 +1,3 @@
-/* Botão escuro com borda e brilho na cor do tema (vermelho ou azul).
-   Sem movimento: no hover só a cor e o brilho mudam. */
 .float {
   position: fixed;
   right: clamp(16px, 2vw, 32px);

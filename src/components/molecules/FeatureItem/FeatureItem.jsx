@@ -1,7 +1,6 @@
 import { Diamond, Heading } from '../../atoms';
 import styles from './FeatureItem.module.css';
 
-/** Diferencial: losango, título e descrição curta. */
 export default function FeatureItem({ titulo, descricao }) {
   return (
     <div className={styles.item}>

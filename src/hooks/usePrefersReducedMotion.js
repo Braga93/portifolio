@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 const CONSULTA = '(prefers-reduced-motion: reduce)';
 
-/** true quando a pessoa pediu "reduzir movimento" no sistema. Atualiza se ela mudar. */
 export default function usePrefersReducedMotion() {
   const [reduzir, setReduzir] = useState(() => window.matchMedia?.(CONSULTA).matches ?? false);
 

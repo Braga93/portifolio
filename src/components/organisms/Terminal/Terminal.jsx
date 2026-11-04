@@ -7,10 +7,6 @@ import { useTheme } from '../../../context/ThemeContext.jsx';
 import { atalhos, boasVindas } from '../../../data/terminal.js';
 import styles from './Terminal.module.css';
 
-/**
- * Terminal da Matrix: o visitante digita comandos e recebe respostas
- * com dados ao vivo da API do GitHub.
- */
 export default function Terminal() {
   const { tema, definirTema } = useTheme();
   const { entradas, ocupado, rodar, navegarHistorico, completar } = useTerminal({
@@ -21,7 +17,6 @@ export default function Terminal() {
   const saidaRef = useRef(null);
   const inputRef = useRef(null);
 
-  // DOM: mantém a saída rolada até o fim enquanto o texto é "digitado"
   useEffect(() => {
     const saida = saidaRef.current;
     if (!saida) return undefined;
@@ -33,7 +28,6 @@ export default function Terminal() {
     return () => observador.disconnect();
   }, []);
 
-  // DOM: clicar na janela foca a linha de comando (sem atrapalhar quem está selecionando texto)
   function focarInput(evento) {
     if (evento.target.closest('a, button')) return;
     if (window.getSelection()?.toString()) return;

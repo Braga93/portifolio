@@ -14,7 +14,6 @@ export const diferenciais = [
   },
 ];
 
-// Uma imagem para cada tema: Morpheus na pílula vermelha, Agente Smith na azul.
 export const imagemSobre = {
   red: { src: imgMorpheus, alt: 'Morpheus estendendo as mãos, oferecendo as pílulas vermelha e azul' },
   blue: { src: imgSmith, alt: 'Agente Smith de terno e óculos escuros' },

@@ -6,7 +6,6 @@ import styles from './Testimonials.module.css';
 
 export default function Testimonials() {
   const { tema } = useTheme();
-  // Morpheus aparece na pílula vermelha; Agente Smith, na azul
   const visiveis = depoimentos.filter((d) => !d.tema || d.tema === tema);
 
   return (
