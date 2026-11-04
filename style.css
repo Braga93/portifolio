@@ -41,10 +41,11 @@ body::before {
     z-index: 9999;
 }
 header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 15px 40px; 
+    column-gap: 24px;
+    padding: 14px 40px; 
     background: linear-gradient(to bottom, rgba(var(--color-wine-rgb), 0.95), rgba(var(--color-wine-rgb), 0)); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -59,83 +60,48 @@ a {
 }
 .nav-esque ul {
     display: flex;
-    gap: 32px;
+    gap: 36px;
     list-style: none;
-    margin: 0; 
+    margin: 0;
 }
-.nav-esque ul li a {
-    text-decoration: none;
-    color: #e1e1e1; 
+.nav-link {
+    position: relative;
+    color: #e1e1e1;
+    font-family: var(--font);
     font-weight: 600;
     font-size: 0.82rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: color 0.25s var(--ease-out);
-}
-#rep {
-    color: #e1e1e1;
-    font-family: var(--font);
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    border: none;
-    background: none;
-    text-transform: uppercase;
+    padding: 6px 0;
     transition: color 400ms var(--ease-out);
 }
-#rep:focus,
-#rep:hover {
-    color: var(--color-warmred); 
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-warmred);
 }
-#rep:focus:after,
-#rep:hover:after {
-    width: 100%;
-    left: 0%;
-}
-#rep:after {
+.nav-link::after {
     content: "";
     pointer-events: none;
-    bottom: -6px;
-    left: 50%;
     position: absolute;
-    width: 0%;
+    bottom: 0;
+    left: 50%;
+    width: 0;
     height: 2px;
-    background-color: var(--color-warmred); 
+    background-color: var(--color-warmred);
     transition: width 400ms var(--ease-out), left 400ms var(--ease-out);
 }
-.comic-button {
-    display: inline-block;
-    padding: 10px 22px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #fff;
-    background-color: var(--color-warmred);
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: all 0.3s var(--ease-out);
-    cursor: pointer;
-}
-.comic-button:hover {
-    background-color: transparent;
-    color: var(--color-warmred);
-    border-color: var(--color-warmred);
-    box-shadow: 0 0 15px rgba(var(--color-warmred-rgb), 0.3);
-}
-.comic-button:active {
-    transform: translateY(1px);
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    width: 100%;
+    left: 0;
 }
 .logo-center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); 
+    justify-self: start;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    gap: 6px; 
+    gap: 6px;
+    padding: 0 8px;
 }
 .spinner {
     width: 24px; 
@@ -981,68 +947,84 @@ a {
     pointer-events: none;
 }
 
-/* --- Botão (label), agora vivendo dentro do menu de navegação --- */
+/* --- Alternador: controle segmentado "Vermelha | Azul" ---
+   O marcador (pill-slider) desliza por trás da opção ativa.
+   As duas opções têm a mesma largura, então o deslize é exato. */
 .pill-toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 12px 6px 6px;
-    background: rgba(var(--color-brown-rgb), 0.4);
+    position: relative;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3px;
+    background: rgba(var(--color-brown-rgb), 0.55);
     border: 1px solid rgba(var(--color-warmred-rgb), 0.35);
     border-radius: 40px;
     cursor: pointer;
+    user-select: none;
     transition: border-color 0.4s var(--ease-out), background 0.4s var(--ease-out);
 }
 .pill-toggle-label:hover {
     border-color: var(--color-warmred);
 }
-
-.pill-track {
-    position: relative;
-    display: inline-block;
-    width: 46px;
-    height: 24px;
-    background: var(--color-warmred);
-    border-radius: 20px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.35);
-    transition: background 0.5s var(--ease-out);
-    flex-shrink: 0;
+.pill-toggle-input:focus-visible ~ header .pill-toggle-label {
+    outline: 2px solid var(--color-warmred);
+    outline-offset: 3px;
 }
-.pill-handle {
+
+.pill-slider {
     position: absolute;
     top: 3px;
+    bottom: 3px;
     left: 3px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    transition: left 0.4s var(--ease-out), background 0.4s var(--ease-out);
+    width: calc(50% - 3px);
+    background: var(--color-warmred);
+    border-radius: 40px;
+    box-shadow: 0 0 14px rgba(var(--color-warmred-rgb), 0.45);
+    transition: transform 0.4s var(--ease-out), background 0.5s var(--ease-out);
 }
 
-.pill-caption {
-    font-family: monospace;
-    font-size: 0.72rem;
+.pill-option {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 92px;
+    padding: 6px 12px;
+    font-family: var(--font);
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #f5f5f5;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     white-space: nowrap;
+    transition: color 0.3s var(--ease-out);
 }
-.pill-caption-blue {
-    display: none;
+.pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.pill-option-red {
+    color: #ffffff;
+}
+.pill-option-red .pill-dot {
+    background: #AD2831;
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}
+.pill-option-blue {
+    color: rgba(245, 245, 245, 0.6);
+}
+.pill-option-blue .pill-dot {
+    background: #2C8FD1;
 }
 
-/* --- Estado ativado: desliza o botão e troca a cor da trilha ---
-   O label agora mora dentro de header > nav > ul > li, então não é
-   mais irmão direto do checkbox — é descendente de um irmão (header).
-   Por isso o seletor usa "~ header .pill-toggle-label" (espaço =
-   qualquer nível de profundidade dentro do header). */
-.pill-toggle-input:checked ~ header .pill-track {
-    background: var(--color-warmred-blue);
-}
-.pill-toggle-input:checked ~ header .pill-handle {
-    left: calc(100% - 21px);
+/* --- Estado ativado: o marcador desliza para a opção azul ---
+   O label mora dentro do header, que é irmão posterior do checkbox,
+   por isso o seletor usa "~ header .pill-toggle-label". */
+.pill-toggle-input:checked ~ header .pill-slider {
+    transform: translateX(calc(100% + 0px));
 }
 .pill-toggle-input:checked ~ header .pill-toggle-label {
     border-color: rgba(44, 143, 209, 0.4);
@@ -1050,11 +1032,52 @@ a {
 .pill-toggle-input:checked ~ header .pill-toggle-label:hover {
     border-color: var(--color-warmred-blue);
 }
-.pill-toggle-input:checked ~ header .pill-caption-red {
-    display: none;
+.pill-toggle-input:checked ~ header .pill-option-red {
+    color: rgba(245, 245, 245, 0.6);
 }
-.pill-toggle-input:checked ~ header .pill-caption-blue {
-    display: inline;
+.pill-toggle-input:checked ~ header .pill-option-blue {
+    color: #ffffff;
+}
+.pill-toggle-input:checked ~ header .pill-option-blue .pill-dot {
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}
+.pill-toggle-input:checked ~ header .pill-option-red .pill-dot {
+    box-shadow: none;
+}
+
+/* --- Header em telas menores --- */
+@media (max-width: 900px) {
+    header {
+        padding: 12px 20px;
+        column-gap: 12px;
+    }
+    .nav-esque ul {
+        gap: 22px;
+    }
+    .pill-option {
+        min-width: 0;
+        padding: 6px 10px;
+        font-size: 0;
+        gap: 0;
+    }
+    .pill-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+@media (max-width: 640px) {
+    header {
+        grid-template-columns: 1fr auto;
+        row-gap: 10px;
+    }
+    .nav-esque {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: center;
+    }
+    .nav-esque ul {
+        gap: 18px;
+    }
 }
 
 /* Nota técnica: usamos DOIS mecanismos que convivem de propósito:

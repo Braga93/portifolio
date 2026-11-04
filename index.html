@@ -35,24 +35,7 @@
     </div>
 
     <header>
-        <nav class="nav-esque">
-            <ul>
-                <li><a href="#hero" id="rep">HOME</a></li>
-                <li><a href="#servicos" id="rep">SERVIÇOS</a></li>
-                <li><a href="#sobre" id="rep">SOBRE</a></li>
-                <li><a href="#contato" id="rep">CONTATO</a></li>
-                <li>
-                    <label for="pill-toggle" class="pill-toggle-label" title="Trocar de realidade">
-                        <span class="pill-track">
-                            <span class="pill-handle"></span>
-                        </span>
-                        <span class="pill-caption pill-caption-red">PÍLULA VERMELHA</span>
-                        <span class="pill-caption pill-caption-blue">PÍLULA AZUL</span>
-                    </label>
-                </li>
-            </ul>
-        </nav> 
-        <div class="logo-center">
+        <a href="#hero" class="logo-center" aria-label="FULLSTACK, voltar ao início">
             <div class="spinner">
                 <div></div>
                 <div></div>
@@ -62,8 +45,22 @@
                 <div></div>
             </div>
             <span class="logo-text">FULLSTACK</span>
-        </div>
-        <a href="https://wa.me/5585997297745" class="comic-button" target="_blank">DUVIDAS?</a>
+        </a>
+
+        <nav class="nav-esque" aria-label="Navegação principal">
+            <ul>
+                <li><a href="#hero" class="nav-link">HOME</a></li>
+                <li><a href="#servicos" class="nav-link">SERVIÇOS</a></li>
+                <li><a href="#sobre" class="nav-link">SOBRE</a></li>
+                <li><a href="#contato" class="nav-link">CONTATO</a></li>
+            </ul>
+        </nav>
+
+        <label for="pill-toggle" class="pill-toggle-label" title="Trocar de realidade">
+            <span class="pill-slider"></span>
+            <span class="pill-option pill-option-red"><i class="pill-dot"></i>Vermelha</span>
+            <span class="pill-option pill-option-blue"><i class="pill-dot"></i>Azul</span>
+        </label>
     </header>
 
     <main>
