@@ -1,4 +1,5 @@
 .card {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,12 +12,9 @@
   height: 48px;
   margin-bottom: 6px;
   color: var(--color-warmred);
-  transition: transform 0.3s var(--ease-out);
-}
-.card:hover .icon {
-  transform: scale(1.1);
 }
 .text {
+  flex-grow: 1;
   max-width: 340px;
   margin-bottom: 10px;
   font-size: 0.95rem;
