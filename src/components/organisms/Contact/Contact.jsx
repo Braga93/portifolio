@@ -8,7 +8,7 @@ export default function Contact() {
     <Section id="contato" labelledBy="contato-titulo" tone="glow">
       <SectionHeader
         id="contato-titulo"
-        eyebrow="04 // Contato"
+        eyebrow="05 // Contato"
         titulo="Entre em contato"
         subtitulo="Tem um projeto em mente ou alguma dúvida? Escolha um dos canais abaixo."
       />

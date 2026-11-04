@@ -10,10 +10,10 @@ export default function Testimonials() {
   const visiveis = depoimentos.filter((d) => !d.tema || d.tema === tema);
 
   return (
-    <Section id="depoimentos" labelledBy="depoimentos-titulo" tone="deep">
+    <Section id="depoimentos" labelledBy="depoimentos-titulo" tone="raised">
       <SectionHeader
         id="depoimentos-titulo"
-        eyebrow="03 // Depoimentos"
+        eyebrow="04 // Depoimentos"
         titulo="Depoimentos de Clientes"
         subtitulo="Veja o que nossos clientes têm a dizer!"
       />

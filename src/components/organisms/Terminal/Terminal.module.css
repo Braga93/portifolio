@@ -1,0 +1,89 @@
+.window {
+  position: relative;
+  max-width: 1000px;
+  margin-inline: auto;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 0.9vw, 0.95rem);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(var(--color-warmred-rgb), 0.35);
+  border-radius: 8px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(var(--color-warmred-rgb), 0.12);
+  cursor: text;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+.window:focus-within {
+  border-color: var(--color-warmred);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(var(--color-warmred-rgb), 0.5),
+    0 0 50px rgba(var(--color-warmred-rgb), 0.25);
+}
+/* linhas de varredura de monitor antigo */
+.window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0, 0, 0, 0.18) 2px 3px);
+  pointer-events: none;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(var(--color-wine-rgb), 0.6);
+  border-bottom: 1px solid rgba(var(--color-warmred-rgb), 0.25);
+}
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(var(--color-warmred-rgb), 0.35);
+}
+.dot:first-child {
+  background: var(--color-warmred);
+}
+.title {
+  flex: 1;
+  margin-right: 46px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.body {
+  padding: clamp(14px, 2vw, 24px);
+}
+.output {
+  height: clamp(300px, 48vh, 560px);
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-warmred-rgb), 0.5) transparent;
+}
+
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  max-width: 1000px;
+  margin: 24px auto 0;
+}
+.hint {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}

@@ -20,6 +20,11 @@
   background-color: var(--color-warmred);
   transition: width 0.4s var(--ease-out), left 0.4s var(--ease-out);
 }
+.link.active::after {
+  width: 100%;
+  left: 0;
+}
+.link.active,
 .link:hover,
 .link:focus-visible {
   color: var(--color-warmred);
@@ -28,4 +33,11 @@
 .link:focus-visible::after {
   width: 100%;
   left: 0;
+}
+
+@media (max-width: 480px) {
+  .link {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
 }

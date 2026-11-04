@@ -5,5 +5,6 @@ export { default as Header } from './Header/Header.jsx';
 export { default as Hero } from './Hero/Hero.jsx';
 export { default as MatrixRain } from './MatrixRain/MatrixRain.jsx';
 export { default as Services } from './Services/Services.jsx';
+export { default as Terminal } from './Terminal/Terminal.jsx';
 export { default as Testimonials } from './Testimonials/Testimonials.jsx';
 export { default as WhatsAppFloat } from './WhatsAppFloat/WhatsAppFloat.jsx';

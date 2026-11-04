@@ -1,0 +1,27 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  background: rgba(var(--color-warmred-rgb), 0.08);
+  border: 1px solid rgba(var(--color-warmred-rgb), 0.3);
+  border-radius: 4px;
+  transition: all 0.25s var(--ease-out);
+}
+.prefix {
+  color: var(--color-warmred);
+}
+.chip:hover:not(:disabled),
+.chip:focus-visible {
+  color: #fff;
+  border-color: var(--color-warmred);
+  background: rgba(var(--color-warmred-rgb), 0.2);
+  box-shadow: 0 0 12px rgba(var(--color-warmred-rgb), 0.3);
+}
+.chip:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}

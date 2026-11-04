@@ -1,0 +1,64 @@
+.entry {
+  margin-bottom: 14px;
+}
+.promptLine,
+.line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.user {
+  color: var(--color-warmred);
+  font-weight: 700;
+}
+.path {
+  color: var(--text-muted);
+}
+.command {
+  color: #fff;
+}
+.texto {
+  color: #e8e8e8;
+}
+.destaque {
+  color: var(--color-warmred);
+  font-weight: 700;
+}
+.suave {
+  color: var(--text-muted);
+}
+.sucesso {
+  color: var(--matrix-green);
+  text-shadow: 0 0 6px rgba(0, 255, 65, 0.35);
+}
+.erro {
+  color: #ff6b6b;
+}
+.link a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--color-warmred-rgb), 0.7);
+  text-underline-offset: 3px;
+}
+.link a:hover,
+.link a:focus-visible {
+  color: var(--color-warmred);
+}
+.loading::after {
+  content: '';
+  animation: pontos 1.2s steps(4, end) infinite;
+}
+@keyframes pontos {
+  0% {
+    content: '';
+  }
+  25% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  75% {
+    content: '...';
+  }
+}

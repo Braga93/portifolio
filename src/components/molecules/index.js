@@ -5,4 +5,6 @@ export { default as NavMenu } from './NavMenu/NavMenu.jsx';
 export { default as PillToggle } from './PillToggle/PillToggle.jsx';
 export { default as SectionHeader } from './SectionHeader/SectionHeader.jsx';
 export { default as ServiceCard } from './ServiceCard/ServiceCard.jsx';
+export { default as TerminalEntry } from './TerminalEntry/TerminalEntry.jsx';
+export { default as TerminalPrompt } from './TerminalPrompt/TerminalPrompt.jsx';
 export { default as TestimonialCard } from './TestimonialCard/TestimonialCard.jsx';

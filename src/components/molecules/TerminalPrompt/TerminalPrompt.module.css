@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(var(--color-warmred-rgb), 0.25);
+}
+.label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.user {
+  color: var(--color-warmred);
+  font-weight: 700;
+}
+.path {
+  color: var(--text-muted);
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+  caret-color: var(--color-warmred);
+}
+.input::placeholder {
+  color: rgba(245, 245, 245, 0.3);
+}
+@media (max-width: 480px) {
+  .user {
+    display: none;
+  }
+}
+/* o foco aparece na janela inteira do terminal, não numa caixa em volta do campo */
+.input:focus-visible {
+  outline: none;
+}

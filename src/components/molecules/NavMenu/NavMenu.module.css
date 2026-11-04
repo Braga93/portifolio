@@ -5,3 +5,9 @@
   column-gap: clamp(16px, 2.5vw, 36px);
   row-gap: 4px;
 }
+
+@media (max-width: 480px) {
+  .list {
+    column-gap: 14px;
+  }
+}

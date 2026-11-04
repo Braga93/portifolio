@@ -1,5 +1,6 @@
 export { default as Accent } from './Accent/Accent.jsx';
 export { default as Button } from './Button/Button.jsx';
+export { default as CommandChip } from './CommandChip/CommandChip.jsx';
 export { default as Container } from './Container/Container.jsx';
 export { default as Cube } from './Cube/Cube.jsx';
 export { default as Diamond } from './Diamond/Diamond.jsx';

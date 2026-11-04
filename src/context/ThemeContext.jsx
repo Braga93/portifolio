@@ -30,8 +30,12 @@ export function ThemeProvider({ children }) {
     setTema((atual) => (atual === 'red' ? 'blue' : 'red'));
   }, []);
 
+  const definirTema = useCallback((novo) => {
+    if (novo === 'red' || novo === 'blue') setTema(novo);
+  }, []);
+
   return (
-    <ThemeContext.Provider value={{ tema, alternarTema }}>
+    <ThemeContext.Provider value={{ tema, alternarTema, definirTema }}>
       {children}
     </ThemeContext.Provider>
   );
