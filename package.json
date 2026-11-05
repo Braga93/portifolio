@@ -3,6 +3,12 @@
   "private": true,
   "version": "2.0.0",
   "description": "Portfólio de Eduardo Braga, desenvolvedor full-stack. React + Vite, organizado em atomic design.",
+  "author": "Eduardo Braga",
+  "homepage": "https://braga93.github.io/portifolio/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Braga93/portifolio.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
